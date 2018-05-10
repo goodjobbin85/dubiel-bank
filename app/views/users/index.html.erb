@@ -1,7 +1,31 @@
-<h2 align="center">All Current Users</h2>
 
-<ul>
-	<% @users.each do |user| %>
-		<li><%= link_to user.email, user_path(user) %></li>
-	<% end %>
-</ul>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="center-align", colspan="5">All Current Users</th>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+		</tr>
+
+	</thead>
+
+
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.email %></td>
+				<td><%= user.first_name %></td>
+				<td><%= user.last_name %></td>
+				<td><%= link_to "Edit", edit_user_path(user) %></td>
+				<td><%= link_to "Delete", user_path(user), method: :delete,
+						data: { confirm: "Are you sure?" } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<%= link_to "New User", new_user_path, class: "btn btn-primary" %>
