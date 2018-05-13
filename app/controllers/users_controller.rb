@@ -32,6 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = "User successfully updated"
       redirect_to users_path
     else
+      flash[:danger] = "Please provide correct info"
       render :edit
     end
   end
