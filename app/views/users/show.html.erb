@@ -5,6 +5,7 @@
 		<tr>
 			<td>User Name</td>
 			<td>User Email</td>
+			<td>Account Balance</td>
 		</tr>
 	</thead>
 
@@ -12,9 +13,12 @@
 		<tr>
 			<td><%=@user.full_name %></td>
 			<td><%= @user.email %></td>
+			<td><%= @user.balance %></td>
 		</tr>
 	</tbody>
 </table>
+
+<h3><bold><%= @user.print_balance %></bold></h3>
 
 <%= link_to "Edit Profile", edit_user_path(@user) %> |
 <%= link_to "Delete User", user_path(@user), method: :delete, 

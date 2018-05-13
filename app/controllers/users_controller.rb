@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       flash[:success] = "User successfully updated"
-      redirect_to users_path
+      redirect_to user_path(@user)
     else
       flash[:danger] = "Please provide correct info"
       render :edit
@@ -47,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password)
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :balance)
   end
 end
