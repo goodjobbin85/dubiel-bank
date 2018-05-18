@@ -16,4 +16,6 @@ class User < ApplicationRecord
 	def print_balance
 		"The current balance of #{full_name}'s account is #{balance}"
 	end
+
+	has_secure_password
 end
